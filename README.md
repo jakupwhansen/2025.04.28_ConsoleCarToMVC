@@ -1,3 +1,11 @@
+MVC 04
+
+Vi har nu indført Dependency Injection ved at lade CarController modtage ICarView i sin constructor.
+Programmet vælger hvilket View der skal bruges og giver det videre til Controlleren.
+Dette fjerner Controllerens ansvar for at vælge afhængigheder selv.
+Det giver lavere kobling, større fleksibilitet og gør koden nemmere at teste og udvide.
+Controlleren styrer flowet uden at kende detaljerne om hvordan View fungerer.
+
 MVC 03
 
 Vi har nu oprettet en CarController, som styrer hele programmets logik.
