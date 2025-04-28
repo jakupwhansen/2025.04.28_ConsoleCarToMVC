@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using ConsoleCarToMVC.Models;
+using ConsoleCarToMVC.Views;
 
-namespace ConsoleCarToMVC
+
+namespace ConsoleCarToMVC.Controllers
 {
     // CarController styrer logikken i programmet og arbejder nu med Dependency Injection.
 

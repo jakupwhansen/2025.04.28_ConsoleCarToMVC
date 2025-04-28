@@ -1,5 +1,6 @@
 ﻿using System;
-using ConsoleCarToMVC;
+using ConsoleCarToMVC.Controllers;
+using ConsoleCarToMVC.Views;
 
 namespace ConsoleCarToMVC
 {

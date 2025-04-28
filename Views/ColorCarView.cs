@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleCarToMVC.Models;
 
-namespace ConsoleCarToMVC
+namespace ConsoleCarToMVC.Views
 {
     class ColorCarView : ICarView
     {

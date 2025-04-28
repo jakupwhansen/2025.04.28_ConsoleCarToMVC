@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleCarToMVC
+namespace ConsoleCarToMVC.Models
 {
     // Model-klassen Car repræsenterer bil-data.
     // Vi bruger properties og en constructor som standard.

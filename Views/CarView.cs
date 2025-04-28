@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ConsoleCarToMVC.Models;
 
-namespace ConsoleCarToMVC
+namespace ConsoleCarToMVC.Views
 {
     // View-klassen håndterer al interaktion med brugeren via Console.
     // Program/Controller snakker med View, ikke direkte med brugeren.
 
-    class CarView:ICarView
+    class CarView : ICarView
     {
         public void ShowMenu()
         {
