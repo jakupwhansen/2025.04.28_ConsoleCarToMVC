@@ -1,3 +1,8 @@
+<p align="right">
+  <a href="https://github.com/jakupwhansen/2025.04.28_ConsoleCarToMVC/blob/master/Opsummering.md">Opsummering af hele systemet</a>
+</p>
+
+
 MVC 08 (DTO)
 
 Vi har tilføjet en DTO (Data Transfer Object) kaldet CarDTO, som bruges til at overføre data mellem lagene i applikationen, specielt til JsonCarRepository. CarDTO indeholder kun de nødvendige data for at gemme og hente biler, f.eks. Brand, Model, og Year. Dette beskytter den interne struktur af vores Model (Car), da kun de nødvendige data sendes frem og tilbage. 
