@@ -123,7 +123,4 @@ Brugen af Dependency Injection og interfaces gør applikationen både fleksibel,
 
 ---
 
-### 🚀 Klar til GitHub!
 
-Vil du også have, at jeg laver en lille liste med "Hvordan man bygger og kører projektet" (Build Instructions), hvis du vil gøre README helt perfekt? 🎯  
-(Så kan du bare copy-paste det bagefter!)
