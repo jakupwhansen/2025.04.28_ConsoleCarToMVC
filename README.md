@@ -1,3 +1,10 @@
+MVC 07
+
+I denne løsning har vi opdateret vores Views til at arbejde med ViewModel i stedet for Model direkte.
+Vi oprettede CarViewModel for at forberede data til visning i et brugervenligt format, såsom DisplayName og Age.
+Både CarView og ColorCarView blev opdateret til at modtage List<CarViewModel> og vise dataene.
+Dette giver en klar separation mellem datahåndtering og præsentation, og vi sikrer, at Views kun modtager de nødvendige data, der skal vises.
+
 MVC 06
 
 Vi har oprettet en ny mappe kaldet "Data" for at adskille datatilgang fra resten af applikationen.
