@@ -1,3 +1,11 @@
+MVC 03
+
+Vi har nu oprettet en CarController, som styrer hele programmets logik.
+Controlleren håndterer brugerens valg, og samarbejder med både View og Model.
+Program-klassen starter kun Controlleren og har ikke længere logik selv.
+Dette adskiller ansvar i koden, så hver del kun gør én ting, som i rigtig MVC.
+Controlleren kalder View for brugerinput og output, og opdaterer Model baseret på valgene.
+
 MVC 02
 
 Vi har oprettet et interface ICarView, som definerer hvad et View skal kunne.
