@@ -1,3 +1,11 @@
+MVC 06
+
+Vi har oprettet en ny mappe kaldet "Data" for at adskille datatilgang fra resten af applikationen.
+I Data-mappen har vi lavet et interface ICarRepository, som definerer hvordan vi arbejder med bil-data.
+Vi har to repositories: DummyCarRepository som bruger RAM og JsonCarRepository som gemmer til fil.
+Det gør vores system fleksibelt, så vi kan skifte datakilde (Dependency Injection (DI)) uden at ændre Controlleren.
+Data-folderen følger samme struktur som rigtige ASP.NET MVC projekter, hvilket forbereder os til webudvikling.
+
 MVC 05
 
 Vi har nu organiseret projektet i mapper: Models, Views og Controllers.
