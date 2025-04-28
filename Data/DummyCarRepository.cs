@@ -1,29 +1,25 @@
-﻿using System.Collections.Generic;
-using ConsoleCarToMVC.Models;
+﻿using ConsoleCarToMVC.Data;
 
-namespace ConsoleCarToMVC.Data
+public class DummyCarRepository : ICarRepository
 {
-    public class DummyCarRepository : ICarRepository
+    private List<CarDTO> cars;  // Vi bruger List<CarDTO> her
+
+    public DummyCarRepository()
     {
-        private List<Car> cars;
-
-        public DummyCarRepository()
+        cars = new List<CarDTO>
         {
-            cars = new List<Car>
-            {
-                new Car("Toyota", "Corolla", 2020),
-                new Car("Ford", "Mustang", 1967)
-            };
-        }
+            new CarDTO("Toyota", "Corolla", 2020),
+            new CarDTO("Ford", "Mustang", 1967)
+        };
+    }
 
-        public List<Car> GetAll()
-        {
-            return cars;
-        }
+    public List<CarDTO> GetAll()
+    {
+        return cars;
+    }
 
-        public void Add(Car car)
-        {
-            cars.Add(car);
-        }
+    public void Add(CarDTO car)
+    {
+        cars.Add(car);
     }
 }

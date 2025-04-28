@@ -54,18 +54,22 @@ namespace ConsoleCarToMVC.Controllers
             string model = view.ReadModel();
             int year = view.ReadYear();
 
-            Car car = new Car(brand, model, year);
-            repository.Add(car); // Gemmer bilen via repository
+            // Mapper Car til CarDTO
+            CarDTO carDto = new CarDTO(brand, model, year);  // Opretter CarDTO i stedet for Car
+
+            // Sender CarDTO til Repository
+            repository.Add(carDto);  // Gemmer bilen via Repository
 
             view.ShowCarAdded();
         }
 
+
         // Viser alle biler ved at hente dem fra Repository
         private void ShowCars()
         {
-            var cars = repository.GetAll(); // Henter Car-objekter fra Repository
+            var carDTOs = repository.GetAll(); // Henter CarDTO-objekter fra Repository
 
-            if (cars.Count == 0)
+            if (carDTOs.Count == 0)
             {
                 view.ShowNoCars();
             }
@@ -73,13 +77,18 @@ namespace ConsoleCarToMVC.Controllers
             {
                 var carViewModels = new List<CarViewModel>();
 
-                foreach (var car in cars)
+                foreach (var carDto in carDTOs)
                 {
-                    carViewModels.Add(new CarViewModel(car));  // Mapper Car til CarViewModel
+                    // Mapper CarDTO til Car (Model)
+                    var car = new Car(carDto.Brand, carDto.Model, carDto.Year);
+
+                    // Mapper Car til CarViewModel
+                    carViewModels.Add(new CarViewModel(car));
                 }
 
-                view.ShowCars(carViewModels); // Sender CarViewModel til View
+                view.ShowCars(carViewModels);  // Sender CarViewModel til View
             }
         }
+
     }
 }

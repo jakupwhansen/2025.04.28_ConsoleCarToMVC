@@ -9,7 +9,8 @@ namespace ConsoleCarToMVC.Data
 {
     public interface ICarRepository
     {
-        List<Car> GetAll();
-        void Add(Car car);
+        List<CarDTO> GetAll();  // Henter CarDTO i stedet for Car
+        void Add(CarDTO car);   // Gemmer CarDTO
     }
+
 }

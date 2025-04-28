@@ -1,30 +1,29 @@
-﻿using ConsoleCarToMVC.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
 namespace ConsoleCarToMVC.Data
 {
-    // Repository der gemmer og henter biler fra en JSON-fil
     public class JsonCarRepository : ICarRepository
     {
-        private readonly string filePath = "cars.json"; // Filnavn til gemte data
+        private readonly string filePath = "cars.json";
 
-        public List<Car> GetAll()
+        // Henter alle CarDTO-objekter fra JSON-filen
+        public List<CarDTO> GetAll()
         {
             if (!File.Exists(filePath))
             {
-                // Hvis filen ikke findes, returnerer vi en tom liste
-                return new List<Car>();
+                return new List<CarDTO>();
             }
 
             string json = File.ReadAllText(filePath);
-            return JsonSerializer.Deserialize<List<Car>>(json) ?? new List<Car>();
+            return JsonSerializer.Deserialize<List<CarDTO>>(json) ?? new List<CarDTO>();
         }
 
-        public void Add(Car car)
+        // Gemmer en CarDTO til JSON-filen
+        public void Add(CarDTO car)
         {
-            var cars = GetAll(); // Hent eksisterende biler
+            var cars = GetAll();
             cars.Add(car);
 
             string json = JsonSerializer.Serialize(cars, new JsonSerializerOptions { WriteIndented = true });
