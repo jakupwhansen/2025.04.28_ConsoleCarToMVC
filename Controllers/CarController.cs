@@ -1,24 +1,23 @@
 ﻿using ConsoleCarToMVC.Models;
+using ConsoleCarToMVC.Data;
 using ConsoleCarToMVC.Views;
-
+using System.Collections.Generic;
 
 namespace ConsoleCarToMVC.Controllers
 {
-    // CarController styrer logikken i programmet og arbejder nu med Dependency Injection.
+    // Controlleren styrer flowet mellem View og Repository.
+    // Den opretter ikke længere egne biler – alt data kommer fra Repository.
 
-    class CarController
+    public class CarController
     {
-        private List<Car> cars = new List<Car>();
-        private ICarView view;
+        private readonly ICarRepository repository;
+        private readonly ICarView view;
 
-        // Dependency Injection: Controller får View leveret udefra (fra Program)
-        public CarController(ICarView view)
+        // Dependency Injection: både repository og view leveres udefra
+        public CarController(ICarRepository repository, ICarView view)
         {
+            this.repository = repository;
             this.view = view;
-
-            // Tilføjer to standardbiler
-            cars.Add(new Car("Toyota", "Corolla", 2020));
-            cars.Add(new Car("Ford", "Mustang", 1967));
         }
 
         public void Run()
@@ -48,6 +47,7 @@ namespace ConsoleCarToMVC.Controllers
             }
         }
 
+        // Tilføjer en ny bil via Repository
         private void AddCar()
         {
             string brand = view.ReadBrand();
@@ -55,13 +55,16 @@ namespace ConsoleCarToMVC.Controllers
             int year = view.ReadYear();
 
             Car car = new Car(brand, model, year);
-            cars.Add(car);
+            repository.Add(car); // Gemmer bilen via repository
 
             view.ShowCarAdded();
         }
 
+        // Viser alle biler ved at hente dem fra Repository
         private void ShowCars()
         {
+            var cars = repository.GetAll(); // Henter alle biler fra repository
+
             if (cars.Count == 0)
             {
                 view.ShowNoCars();

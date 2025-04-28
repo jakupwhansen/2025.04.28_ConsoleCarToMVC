@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleCarToMVC.Views
 {
-    interface ICarView
+    public interface ICarView
     {
         void ShowMenu();
         string ReadChoice();

@@ -9,7 +9,7 @@ namespace ConsoleCarToMVC.Models
     // Model-klassen Car repræsenterer bil-data.
     // Vi bruger properties og en constructor som standard.
 
-    class Car
+    public class Car
     {
         public string Brand { get; set; }
         public string Model { get; set; }
