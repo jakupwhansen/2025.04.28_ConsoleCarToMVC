@@ -1,3 +1,11 @@
+MVC 05
+
+Vi har nu organiseret projektet i mapper: Models, Views og Controllers.
+Det gør det nemt at finde klasserne og viser klart deres rolle i systemet.
+Strukturen følger standarden fra rigtig MVC-udvikling (og ASP.NET MVC).
+Når projekter vokser, bliver mapper afgørende for overblik og vedligeholdelse.
+Det hjælper både os selv og andre, der skal læse eller videreudvikle koden.
+
 MVC 04
 
 Vi har nu indført Dependency Injection ved at lade CarController modtage ICarView i sin constructor.
