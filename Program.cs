@@ -9,19 +9,26 @@ using System.Runtime.ConstrainedExecution;
 
 class Program
 {
+
     private List<Car> cars = new List<Car>();
-    private CarView view = new CarView();
+    private ICarView view;
+
+    // Constructor
+    public Program()
+    {
+        // Her vælger vi konkret View (Console-view)
+        //view = new CarView();
+        view = new ColorCarView();
+
+        // Vi tilføjer 2 standardbiler, så der er noget at vise
+        cars.Add(new Car("Toyota", "Corolla", 2020));
+        cars.Add(new Car("Ford", "Mustang", 1967));
+    }
 
     static void Main(string[] args)
     {
         Program program = new Program();
         program.Run();
-    }
-    // Constructor - her tilføjer vi 2 biler, så der er noget at vise fra start
-    public Program()
-    {
-        cars.Add(new Car("Toyota", "Corolla", 2020));
-        cars.Add(new Car("Ford", "Mustang", 1967));
     }
 
     public void Run()
@@ -75,3 +82,4 @@ class Program
         }
     }
 }
+

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleCarToMVC
 {
-    // View-klassen håndterer al interaktion med brugeren via Console.
-    // Program/Controller snakker med View, ikke direkte med brugeren.
-
-    class CarView:ICarView
+    class ColorCarView : ICarView
     {
         public void ShowMenu()
         {
@@ -23,7 +23,9 @@ namespace ConsoleCarToMVC
 
         public void ShowInvalidChoice()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Ugyldigt valg. Prøv igen.");
+            Console.ResetColor();
         }
 
         public string ReadBrand()
@@ -44,27 +46,39 @@ namespace ConsoleCarToMVC
             int year;
             while (!int.TryParse(Console.ReadLine(), out year))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Ugyldigt input. Indtast et gyldigt årstal: ");
+                Console.ResetColor();
             }
             return year;
         }
 
         public void ShowCarAdded()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Bil tilføjet!");
+            Console.ResetColor();
         }
 
         public void ShowNoCars()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Ingen biler oprettet endnu.");
+            Console.ResetColor();
         }
 
         public void ShowCars(List<Car> cars)
         {
             Console.WriteLine("\nListe over biler:");
-            foreach (Car car in cars)
+            foreach (var car in cars)
             {
-                Console.WriteLine($"{car.Brand} {car.Model} ({car.Year})");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write(car.Brand + " ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(car.Model + " ");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("(" + car.Year + ")");
+                Console.ResetColor();
             }
         }
     }
