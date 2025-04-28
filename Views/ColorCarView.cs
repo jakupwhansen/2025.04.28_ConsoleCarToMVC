@@ -62,20 +62,15 @@ namespace ConsoleCarToMVC.Views
             Console.WriteLine("Ingen biler oprettet endnu.");
             Console.ResetColor();
         }
-
-        public void ShowCars(List<Car> cars)
+        public void ShowCars(List<CarViewModel> carViewModels)
         {
-            Console.WriteLine("\nListe over biler:");
-            foreach (var car in cars)
+            foreach (var car in carViewModels)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write(car.Brand + " ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(car.Model + " ");
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("(" + car.Year + ")");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{car.DisplayName} - {car.Age} år gammel");
                 Console.ResetColor();
             }
         }
+ 
     }
 }

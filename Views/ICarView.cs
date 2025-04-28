@@ -16,7 +16,7 @@ namespace ConsoleCarToMVC.Views
         string ReadModel();
         int ReadYear();
         void ShowCarAdded();
+        void ShowCars(List<CarViewModel> carViewModels);  // Ændret til CarViewModel
         void ShowNoCars();
-        void ShowCars(List<Car> cars);
     }
 }

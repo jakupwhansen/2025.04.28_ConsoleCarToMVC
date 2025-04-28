@@ -63,7 +63,7 @@ namespace ConsoleCarToMVC.Controllers
         // Viser alle biler ved at hente dem fra Repository
         private void ShowCars()
         {
-            var cars = repository.GetAll(); // Henter alle biler fra repository
+            var cars = repository.GetAll(); // Henter Car-objekter fra Repository
 
             if (cars.Count == 0)
             {
@@ -71,7 +71,14 @@ namespace ConsoleCarToMVC.Controllers
             }
             else
             {
-                view.ShowCars(cars);
+                var carViewModels = new List<CarViewModel>();
+
+                foreach (var car in cars)
+                {
+                    carViewModels.Add(new CarViewModel(car));  // Mapper Car til CarViewModel
+                }
+
+                view.ShowCars(carViewModels); // Sender CarViewModel til View
             }
         }
     }

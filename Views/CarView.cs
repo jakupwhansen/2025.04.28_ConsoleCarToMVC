@@ -58,13 +58,13 @@ namespace ConsoleCarToMVC.Views
             Console.WriteLine("Ingen biler oprettet endnu.");
         }
 
-        public void ShowCars(List<Car> cars)
+        public void ShowCars(List<CarViewModel> carViewModels)
         {
-            Console.WriteLine("\nListe over biler:");
-            foreach (Car car in cars)
+            foreach (var car in carViewModels)
             {
-                Console.WriteLine($"{car.Brand} {car.Model} ({car.Year})");
+                Console.WriteLine($"{car.DisplayName} - {car.Age} år gammel");
             }
         }
+
     }
 }
