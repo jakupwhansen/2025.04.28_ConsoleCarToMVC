@@ -2,26 +2,23 @@
 
 namespace ConsoleCarToMVC
 {
-    // CarController styrer programmets logik.
-    // Den håndterer brugerens valg og styrer samarbejdet mellem View og Model.
+    // CarController styrer logikken i programmet og arbejder nu med Dependency Injection.
 
     class CarController
     {
-        private List<Car> cars = new List<Car>();  // Liste til at gemme bilerne
-        private ICarView view;                      // Bruger interface så vi kan skifte View fleksibelt
+        private List<Car> cars = new List<Car>();
+        private ICarView view;
 
-        public CarController()
+        // Dependency Injection: Controller får View leveret udefra (fra Program)
+        public CarController(ICarView view)
         {
-            // Her vælger vi hvilket View vi vil bruge.
-            // view = new CarView();
-            view = new ColorCarView();
+            this.view = view;
 
-            // Tilføjer to standardbiler så der er noget data fra starten
+            // Tilføjer to standardbiler
             cars.Add(new Car("Toyota", "Corolla", 2020));
             cars.Add(new Car("Ford", "Mustang", 1967));
         }
 
-        // Run-metoden styrer hovedflowet i applikationen
         public void Run()
         {
             bool running = true;
@@ -49,7 +46,6 @@ namespace ConsoleCarToMVC
             }
         }
 
-        // Tilføjer en ny bil baseret på brugerinput
         private void AddCar()
         {
             string brand = view.ReadBrand();
@@ -62,7 +58,6 @@ namespace ConsoleCarToMVC
             view.ShowCarAdded();
         }
 
-        // Viser alle biler til brugeren
         private void ShowCars()
         {
             if (cars.Count == 0)

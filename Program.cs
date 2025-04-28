@@ -3,13 +3,13 @@ using ConsoleCarToMVC;
 
 namespace ConsoleCarToMVC
 {
-    // Program-klassen er nu kun ansvarlig for at starte programmet.
-    // Den skaber en Controller og kalder dens Run()-metode.
     class Program
     {
         static void Main(string[] args)
         {
-            CarController controller = new CarController();
+            // Her vælger vi hvilket View vi vil bruge
+            ICarView view = new ColorCarView(); // eller new CarView();
+            CarController controller = new CarController(view);
             controller.Run();
         }
     }
