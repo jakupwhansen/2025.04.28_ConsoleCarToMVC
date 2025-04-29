@@ -20,7 +20,7 @@ Vi oprettede CarViewModel for at forberede data til visning i et brugervenligt f
 Både CarView og ColorCarView blev opdateret til at modtage List<CarViewModel> og vise dataene.
 Dette giver en klar separation mellem datahåndtering og præsentation, og vi sikrer, at Views kun modtager de nødvendige data, der skal vises.
 
-MVC 06 (Controller: Repository DI)
+MVC 06 (Repository DI)
 
 Vi har oprettet en ny mappe kaldet "Data" for at adskille datatilgang fra resten af applikationen.
 I Data-mappen har vi lavet et interface ICarRepository, som definerer hvordan vi arbejder med bil-data.
