@@ -3,7 +3,7 @@
 </p>
 
 
-MVC 08 (DTO)
+MVC 08 (DTO) (Extra)
 
 Vi har tilføjet en DTO (Data Transfer Object) kaldet CarDTO, som bruges til at overføre data mellem lagene i applikationen, specielt til JsonCarRepository. CarDTO indeholder kun de nødvendige data for at gemme og hente biler, f.eks. Brand, Model, og Year. Dette beskytter den interne struktur af vores Model (Car), da kun de nødvendige data sendes frem og tilbage. 
 
@@ -13,14 +13,14 @@ Model (Car) repræsenterer den interne struktur og logik. Når vi henter CarDTO 
 ViewModel (CarViewModel) bruges til at forberede data til præsentation i View. CarViewModel modtager Car og omdanner den til præsentationsvenlige data, såsom DisplayName og Age.
 Workflow: Repository henter CarDTO. Controller mapper CarDTO til Car. Controller mapper Car til CarViewModel for præsentation i View.
 
-MVC 07 (ViewModel)
+MVC 07 (ViewModel) (Extra)
 
 I denne løsning har vi opdateret vores Views til at arbejde med ViewModel i stedet for Model direkte.
 Vi oprettede CarViewModel for at forberede data til visning i et brugervenligt format, såsom DisplayName og Age.
 Både CarView og ColorCarView blev opdateret til at modtage List<CarViewModel> og vise dataene.
 Dette giver en klar separation mellem datahåndtering og præsentation, og vi sikrer, at Views kun modtager de nødvendige data, der skal vises.
 
-MVC 06 (Repository DI)
+MVC 06 (Repository DI) (Fuld MVC løsning nu)
 
 Vi har oprettet en ny mappe kaldet "Data" for at adskille datatilgang fra resten af applikationen.
 I Data-mappen har vi lavet et interface ICarRepository, som definerer hvordan vi arbejder med bil-data.
